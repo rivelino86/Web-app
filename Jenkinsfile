@@ -5,7 +5,7 @@ pipeline{
         stage('push to ECR'){
           steps{
             script {
-                  withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://655040006853.dkr.ecr.us-east-1.amazonaws.com/'){
+                  withDockerRegistry(credentialsId: 'ecr:us-east-1:web_pp', url: 'https://655040006853.dkr.ecr.us-east-1.amazonaws.com/') {
 
                   echo "========I am a DevOps Engineer ========"
                   sh "docker build -t web-app ."
