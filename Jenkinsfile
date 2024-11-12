@@ -17,7 +17,7 @@ pipeline{
              }
               
           }
-            stage("Update ECS") {
+        stage("Update ECS") {
                 steps {
                 sh " aws ecs update-service --cluster gift-app --service  giftservice --force-new-deployment > "
         }
