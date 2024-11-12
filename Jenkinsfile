@@ -9,13 +9,12 @@ pipeline{
 
                   echo "========I am a DevOps Engineer ========"
                   sh "docker build -t web-app:1.2.2 ."
-                  sh "docker tag web-app:latest 655040006853.dkr.ecr.us-east-1.amazonaws.com/web-app:latest"
+                  sh "docker tag web-app:1.2.2 655040006853.dkr.ecr.us-east-1.amazonaws.com/web-app:latest"
                   sh "docker push 655040006853.dkr.ecr.us-east-1.amazonaws.com/web-app:latest"
                   sh "docker push 655040006853.dkr.ecr.us-east-1.amazonaws.com/web-app:1.2.2"
-                
+                  }
                 }
-             }
-              
+             }   
           }
         stage("Update ECS") {
                 steps {
@@ -24,4 +23,3 @@ pipeline{
     }
   }
  }
-}
