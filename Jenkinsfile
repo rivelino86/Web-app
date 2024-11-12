@@ -18,12 +18,8 @@ pipeline {
         
         stage("Update ECS") {
             steps {
-                script{
-                      withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-credentials']]) {
                         sh "aws ecs update-service --cluster gift-app --service giftservice --force-new-deployment"
                 }
             }
         }
     }
- }
-}
