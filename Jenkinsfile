@@ -17,14 +17,10 @@ pipeline {
         }
         
         stage("Update ECS") {
-            steps { 
-                script{
-                     withDockerRegistry(credentialsId: 'ecr:us-east-1:web_pp', url: 'https://655040006853.dkr.ecr.us-east-1.amazonaws.com/'){
-                     
+            steps {  
                     sh "aws ecs update-service --cluster gift-app --service giftservice --force-new-deployment"
                      }
                  }
                 }
             }
-        }
-    }
+        
